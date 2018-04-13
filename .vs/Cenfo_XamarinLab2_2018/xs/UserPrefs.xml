@@ -1,0 +1,20 @@
+﻿<Properties StartupConfiguration="{BD3E1965-CDC6-4076-8105-EDC7A1B02C97}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Cenfo_XamarinLab2_2018/Views/TabNavigationView.xaml.cs">
+    <Files>
+      <File FileName="Cenfo_XamarinLab2_2018/ViewModels/StudentsViewModel.cs" Line="117" Column="31" />
+      <File FileName="Cenfo_XamarinLab2_2018/Views/TabNavigationView.xaml" Line="8" Column="54" />
+      <File FileName="Cenfo_XamarinLab2_2018/Views/TabNavigationView.xaml.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Cenfo__XamarinLab2__2018 FirstBuild="True" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Cenfo__XamarinLab2__2018.Droid PreferredExecutionTarget="Android.Android_Accelerated_Nougat" />
+  <MonoDevelop.Ide.ItemProperties.Cenfo__XamarinLab2__2018.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C20FBBE0-6CDE-48F4-A5FE-814FE4BDA3F4">
+    <MonoDevelop.MacDev.AppleDevelopmentTeam />
+  </MonoDevelop.Ide.ItemProperties.Cenfo__XamarinLab2__2018.iOS>
+</Properties>

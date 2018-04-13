@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    Title="Student" 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Cenfo_XamarinLab2_2018.Views.DetailsStudentView">
+    <StackLayout Padding="15">
+        <Image Margin="5" Source="share" HeightRequest="50" WidthRequest="50" HorizontalOptions="End" />
+        <Image Source="UserProfile" HorizontalOptions="Center" HeightRequest="150" WidthRequest="150" />
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+            <Label Style="{StaticResource AttributeLabel}" Text="{Binding CurrentStudent.FirstName}" />
+            <Label Style="{StaticResource AttributeLabel}" Text="{Binding CurrentStudent.LastName}" />
+            <Label Style="{StaticResource AttributeLabel}" Text="{Binding CurrentStudent.MothersName}" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+            <Label Style="{StaticResource AttributeLabel}" Text="Grade: "></Label>
+            <Label 
+                Text="{Binding CurrentStudent.Grade, Converter={StaticResource FloatToPercentage}}" 
+                Style="{StaticResource AttributeLabel}" />
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Label Style="{StaticResource AttributeLabel}" Text="Homework" />
+            <Button
+                Command="{Binding AddHomeworkCommand}"
+                WidthRequest="25" HeightRequest="25" Image="new" />
+        </StackLayout>
+
+        <ListView ItemsSource="{Binding CurrentStudent.Homework}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label HorizontalTextAlignment="Center" Text="{Binding FilePath}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

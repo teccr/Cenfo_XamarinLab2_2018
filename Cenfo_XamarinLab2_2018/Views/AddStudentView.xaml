@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="Add" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Cenfo_XamarinLab2_2018.Views.AddStudentView">
+    <StackLayout Padding="12" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <Image Source="UserProfile" HeightRequest="150" WidthRequest="150" />
+        <StackLayout Style="{StaticResource StackLayoutEntry}" >
+            <Label Style="{StaticResource AttributeLabel}" Text="First Name:"></Label>
+            <Entry Text="{Binding CurrentStudent.FirstName}" Style="{StaticResource StudentEntry}" />
+        </StackLayout>
+        <StackLayout Style="{StaticResource StackLayoutEntry}" >
+            <Label Style="{StaticResource AttributeLabel}" Text="Last Name:"></Label>
+            <Entry Text="{Binding CurrentStudent.LastName}" Style="{StaticResource StudentEntry}" />
+        </StackLayout>
+        <StackLayout Style="{StaticResource StackLayoutEntry}" >
+            <Label Style="{StaticResource AttributeLabel}" Text="Mother's Name:"></Label>
+            <Entry Text="{Binding CurrentStudent.MothersName}" Style="{StaticResource StudentEntry}" />
+        </StackLayout>
+        <StackLayout Style="{StaticResource StackLayoutEntry}" >
+            <Label Style="{StaticResource AttributeLabel}" Text="Grade:"></Label>
+            <Entry Text="{Binding CurrentStudent.Grade, Converter={StaticResource FloatToPercentage}}" 
+                   Style="{StaticResource StudentEntry}"
+                   />
+        </StackLayout>
+        <StackLayout Style="{StaticResource StackLayoutEntry}" >
+            <Label Style="{StaticResource AttributeLabel}" Text="Address:"></Label>
+            <Entry Text="{Binding CurrentStudent.Address}" Style="{StaticResource StudentEntry}" />
+        </StackLayout>
+        <StackLayout Style="{StaticResource StackLayoutEntry}">
+            <Label Style="{StaticResource AttributeLabel}" Text="Phone Number:"></Label>
+            <Entry Text="{Binding CurrentStudent.Phone}" Style="{StaticResource StudentEntry}" />
+        </StackLayout>
+        <Button
+            Command="{Binding AddStudentCommand}"
+            Style="{StaticResource SubmitButton}"
+            Text="Add Student" />
+    </StackLayout>
+</ContentPage>

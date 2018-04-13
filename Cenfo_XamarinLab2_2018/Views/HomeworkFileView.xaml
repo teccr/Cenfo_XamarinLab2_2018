@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Cenfo_XamarinLab2_2018.Views.HomeworkFileView">
+    <StackLayout Padding="12">
+        <Label Style="{StaticResource AttributeLabel}" Text="Add Homework File" />
+        <Entry Text="{Binding CurrentHomework.FilePath}" Style="{StaticResource StudentEntry}" />
+        <Button 
+            Style="{StaticResource SubmitButton}" 
+            Command="{Binding SaveHomeworkFileCommand}"
+            Text="Add File" />
+    </StackLayout>
+</ContentPage>

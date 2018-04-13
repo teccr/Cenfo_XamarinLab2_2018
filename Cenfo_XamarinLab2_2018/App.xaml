@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:converters="clr-namespace:Cenfo_XamarinLab2_2018.Views.Converters"
+    x:Class="Cenfo_XamarinLab2_2018.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <converters:PercentageConverter x:Key="FloatToPercentage" />
+            
+            <Style x:Key="lstLabelMain" TargetType="Label">
+                <Setter Property="TextColor" Value="#104F55" />
+            </Style>
+            <Style x:Key="lstLabelSecondary" TargetType="Label">
+                <Setter Property="TextColor" Value="#32746D" />
+                <Setter Property="FontSize" Value="15" />
+            </Style>
+            <Style x:Key="AttributeLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="#01200F" />
+            </Style>
+            <Style x:Key="StackLayoutEntry" TargetType="StackLayout">
+                <Setter Property="Orientation" Value="Vertical" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+            <Style x:Key="StudentEntry" TargetType="Entry">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="BackgroundColor" Value="#9EC5AB" />
+            </Style>
+            <Style x:Key="SubmitButton" TargetType="Button">
+                <Setter Property="BorderRadius" Value="10" />
+                <Setter Property="BackgroundColor" Value="#104F55" />
+                <Setter Property="TextColor" Value="#9EC5AB" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

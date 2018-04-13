@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    Title="Students" 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Name="StudentsView"
+    x:Class="Cenfo_XamarinLab2_2018.Views.ListStudentsView">
+    <StackLayout Padding="15" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <Label Style="{StaticResource AttributeLabel}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Text="Students" />
+        <ListView HasUnevenRows="true" ItemsSource="{Binding Students}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="0,5,0,5" HorizontalOptions="FillAndExpand">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding Path=BindingContext.SelectStudentCommand, Source={x:Reference StudentsView}}"
+                                    CommandParameter="{Binding Id}"
+                                />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackLayout Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Style="{StaticResource lstLabelMain}" Text="{Binding FirstName}" />
+                                    <Label Style="{StaticResource lstLabelMain}" Text="{Binding LastName}" />
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal">
+                                     <Label Style="{StaticResource lstLabelSecondary}" Text="Grade" />
+                                     <Label Style="{StaticResource lstLabelSecondary}" Text="{Binding Grade, Converter={StaticResource FloatToPercentage}}" />
+                                </StackLayout>
+                            </StackLayout>
+                            
+                            <Image Grid.Column="1" HeightRequest="50" WidthRequest="50" HorizontalOptions="EndAndExpand" Source="{Binding ProfilePicture}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
