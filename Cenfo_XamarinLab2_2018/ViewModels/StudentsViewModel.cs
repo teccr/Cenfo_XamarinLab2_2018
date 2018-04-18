@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Cenfo_XamarinLab2_2018.Models;
 using Cenfo_XamarinLab2_2018.Views;
+using Plugin.Media;
 using Xamarin.Forms;
 
 namespace Cenfo_XamarinLab2_2018.ViewModels
@@ -106,6 +107,37 @@ namespace Cenfo_XamarinLab2_2018.ViewModels
             SelectStudentCommand = new Command<int>(SelectStudent);
             AddHomeworkCommand = new Command(AddHomework);
             SaveHomeworkFileCommand = new Command(SaveHomeworkFile);
+            TakePictureCommand = new Command(TakePicture);
+        }
+
+        private async void TakePicture()
+        {
+            await CrossMedia.Current.Initialize();
+
+            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            {
+                await App.Current.MainPage.DisplayAlert("No Camera", ":( No camera available.", "OK");
+                return;
+            }
+
+            var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+            {
+                Directory = "Sample",
+                Name = "test.jpg"
+            });
+
+            if (file == null)
+                return;
+
+            //await App.Current.MainPage.DisplayAlert("File Location", file.Path, "OK");
+
+            CurrentStudent.ProfilePicture = file.Path;
+        }
+
+        public ICommand TakePictureCommand
+        {
+            get;
+            set;
         }
 
         private void AddStudent()

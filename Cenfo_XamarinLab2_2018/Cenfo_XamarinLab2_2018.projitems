@@ -58,6 +58,8 @@
       <DependentUpon>HomeworkFileView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\Converters\PercentageConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Converters\ProfilePictureConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\StudentAPI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />

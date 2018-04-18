@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage Title="Add" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Cenfo_XamarinLab2_2018.Views.AddStudentView">
     <StackLayout Padding="12" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-        <Image Source="UserProfile" HeightRequest="150" WidthRequest="150" />
+        <Image Source="{Binding ProfilePicture, Converter={StaticResource DefaultImage}}" x:Name="imgProfilePicture" HeightRequest="130" WidthRequest="130" />
+        <Button Command="{Binding TakePictureCommand}" x:Name="btnTakePicture" WidthRequest="120" HeightRequest="30" Text="Take Photo" />
         <StackLayout Style="{StaticResource StackLayoutEntry}" >
             <Label Style="{StaticResource AttributeLabel}" Text="First Name:"></Label>
             <Entry Text="{Binding CurrentStudent.FirstName}" Style="{StaticResource StudentEntry}" />

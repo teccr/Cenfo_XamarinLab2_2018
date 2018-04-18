@@ -7,6 +7,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <converters:PercentageConverter x:Key="FloatToPercentage" />
+            <converters:ProfilePictureConverter x:Key="DefaultImage" />
             
             <Style x:Key="lstLabelMain" TargetType="Label">
                 <Setter Property="TextColor" Value="#104F55" />
