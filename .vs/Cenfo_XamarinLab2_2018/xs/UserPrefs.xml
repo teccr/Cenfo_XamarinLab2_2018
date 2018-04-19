@@ -1,12 +1,5 @@
 ﻿<Properties StartupConfiguration="{BD3E1965-CDC6-4076-8105-EDC7A1B02C97}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Cenfo_XamarinLab2_2018/Utils/Utils.cs">
-    <Files>
-      <File FileName="Cenfo_XamarinLab2_2018/ViewModels/StudentsViewModel.cs" Line="205" Column="14" />
-      <File FileName="Cenfo_XamarinLab2_2018/Views/DetailsStudentView.xaml" Line="34" Column="47" />
-      <File FileName="Cenfo_XamarinLab2_2018/Utils/Utils.cs" Line="7" Column="66" />
-      <File FileName="Cenfo_XamarinLab2_2018/Models/Homework.cs" Line="15" Column="14" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.ItemProperties.Cenfo__XamarinLab2__2018 FirstBuild="True" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

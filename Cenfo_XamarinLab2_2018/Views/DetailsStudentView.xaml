@@ -6,7 +6,7 @@
     x:Class="Cenfo_XamarinLab2_2018.Views.DetailsStudentView">
     <StackLayout Padding="15">
         <Image Margin="5" Source="share" HeightRequest="50" WidthRequest="50" HorizontalOptions="End" />
-        <Image Source="UserProfile" HorizontalOptions="Center" HeightRequest="150" WidthRequest="150" />
+        <Image Source="{Binding CurrentStudent.ProfilePicture}" HorizontalOptions="Center" HeightRequest="150" WidthRequest="150" />
         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
             <Label Style="{StaticResource AttributeLabel}" Text="{Binding CurrentStudent.FirstName}" />
             <Label Style="{StaticResource AttributeLabel}" Text="{Binding CurrentStudent.LastName}" />
