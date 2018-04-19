@@ -64,17 +64,17 @@ namespace Cenfo_XamarinLab2_2018.Models
             set;
         }
 
-        public static async Task<ObservableCollection<StudentAPI>> GetAllStudents()
+        public static async Task<ObservableCollection<Student>> GetAllStudents()
         {
-            ObservableCollection<StudentAPI> students = new ObservableCollection<StudentAPI>();
+            ObservableCollection<Student> students = new ObservableCollection<Student>();
             using(HttpClient client = new HttpClient())
             {
-                var uri = new Uri("http://50cf4af0.ngrok.io/Student/getAllStudents");
-                var json = JsonConvert.SerializeObject( new { ID = 1 } );
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-                HttpResponseMessage responseMessage = await client.PostAsync(uri, content).ConfigureAwait(false);
+                var uri = new Uri(Utils.Utils.STUDENTS_URl);
+                //var json = JsonConvert.SerializeObject( new { ID = 1 } );
+                //var content = new StringContent(json, Encoding.UTF8, "application/json");
+                HttpResponseMessage responseMessage = await client.GetAsync(uri).ConfigureAwait(false);
                 string ans = await responseMessage.Content.ReadAsStringAsync();
-                students = JsonConvert.DeserializeObject<ObservableCollection<StudentAPI>>(ans);
+                students = JsonConvert.DeserializeObject<ObservableCollection<Student>>(ans);
 
             }
 

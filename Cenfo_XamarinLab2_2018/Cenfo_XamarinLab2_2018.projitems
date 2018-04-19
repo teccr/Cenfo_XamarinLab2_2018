@@ -60,11 +60,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\Converters\PercentageConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Converters\ProfilePictureConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\StudentAPI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
     <Folder Include="$(MSBuildThisFileDirectory)ViewModels\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\Converters\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Utils\" />
   </ItemGroup>
 </Project>

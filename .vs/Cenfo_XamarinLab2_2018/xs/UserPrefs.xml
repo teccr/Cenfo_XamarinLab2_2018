@@ -1,11 +1,10 @@
 ﻿<Properties StartupConfiguration="{BD3E1965-CDC6-4076-8105-EDC7A1B02C97}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Cenfo_XamarinLab2_2018/Models/Student.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Cenfo_XamarinLab2_2018/Utils/Utils.cs">
     <Files>
-      <File FileName="Cenfo_XamarinLab2_2018/Views/Converters/ProfilePictureConverter.cs" Line="15" Column="14" />
-      <File FileName="Cenfo_XamarinLab2_2018/Views/AddStudentView.xaml" Line="38" Column="1" />
-      <File FileName="Cenfo_XamarinLab2_2018/App.xaml" Line="39" Column="1" />
-      <File FileName="Cenfo_XamarinLab2_2018/Models/StudentAPI.cs" Line="28" Column="2" />
-      <File FileName="Cenfo_XamarinLab2_2018/Models/Student.cs" Line="73" Column="51" />
+      <File FileName="Cenfo_XamarinLab2_2018/ViewModels/StudentsViewModel.cs" Line="205" Column="14" />
+      <File FileName="Cenfo_XamarinLab2_2018/Views/DetailsStudentView.xaml" Line="34" Column="47" />
+      <File FileName="Cenfo_XamarinLab2_2018/Utils/Utils.cs" Line="7" Column="66" />
+      <File FileName="Cenfo_XamarinLab2_2018/Models/Homework.cs" Line="15" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.Cenfo__XamarinLab2__2018 FirstBuild="True" />

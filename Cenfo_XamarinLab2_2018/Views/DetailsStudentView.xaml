@@ -22,7 +22,7 @@
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
             <Label Style="{StaticResource AttributeLabel}" Text="Homework" />
             <Button
-                Command="{Binding AddHomeworkCommand}"
+                Command="{Binding PickFileCommand}"
                 WidthRequest="25" HeightRequest="25" Image="new" />
         </StackLayout>
 
@@ -31,6 +31,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout>
+                            <Label Text="Path:" />
                             <Label HorizontalTextAlignment="Center" Text="{Binding FilePath}" />
                         </StackLayout>
                     </ViewCell>

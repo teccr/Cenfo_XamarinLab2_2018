@@ -2,11 +2,14 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Cenfo_XamarinLab2_2018.Models;
 using Cenfo_XamarinLab2_2018.Views;
+using Newtonsoft.Json;
 using Plugin.Media;
 using Xamarin.Forms;
 
@@ -63,7 +66,7 @@ namespace Cenfo_XamarinLab2_2018.ViewModels
 
         private async void InitClass()
         {
-            Students = await LoadStudents();
+            Students = await Student.GetAllStudents();
             CurrentStudent = new Student();
         }
 
@@ -108,6 +111,7 @@ namespace Cenfo_XamarinLab2_2018.ViewModels
             AddHomeworkCommand = new Command(AddHomework);
             SaveHomeworkFileCommand = new Command(SaveHomeworkFile);
             TakePictureCommand = new Command(TakePicture);
+            PickFileCommand = new Command(PickFile);
         }
 
         private async void TakePicture()
@@ -140,13 +144,71 @@ namespace Cenfo_XamarinLab2_2018.ViewModels
             set;
         }
 
-        private void AddStudent()
+        private async void AddStudent()
         {
             System.Random random = new System.Random();
             CurrentStudent.Id = random.Next(100001, 10000000);
-            Students.Add(CurrentStudent);
+            if (string.IsNullOrEmpty(CurrentStudent.ProfilePicture)) 
+                CurrentStudent.ProfilePicture = "icon";
+            using (HttpClient client = new HttpClient())
+            {
+                var uri = new Uri(Utils.Utils.STUDENTS_URl);
+                var json = JsonConvert.SerializeObject( CurrentStudent );
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                HttpResponseMessage responseMessage = await client.PostAsync(uri, content).ConfigureAwait(false);
+                string ans = await responseMessage.Content.ReadAsStringAsync();
+                CurrentStudent = JsonConvert.DeserializeObject<Student>( ans );
+                Students.Add(CurrentStudent);
+            }
             CurrentStudent = null;
-            MoveNext("Students");
+            //MoveNext("Students");
+        }
+
+        public ICommand PickFileCommand
+        {
+            get;
+            set;
+        }
+
+        public async void PickFile()
+        {
+            await CrossMedia.Current.Initialize();
+
+            /*if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            {
+                await App.Current.MainPage.DisplayAlert("No Camera", ":( No camera available.", "OK");
+                return;
+            }*/
+
+            CurrentHomework = new Homework();
+            var file = await CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
+            {
+            });
+
+            if (file == null)
+                return;
+
+            //await App.Current.MainPage.DisplayAlert("File Location", file.Path, "OK");
+
+            CurrentHomework.FilePath = file.Path;
+            System.Random random = new System.Random();
+            CurrentHomework.Id = random.Next(100001, 10000000);
+
+            // REST Call
+            using (HttpClient client = new HttpClient())
+            {
+                var uri = new Uri(Utils.Utils.HOMEWORK_URl + CurrentStudent.Id.ToString());
+                var json = JsonConvert.SerializeObject(CurrentHomework);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                HttpResponseMessage responseMessage = await client.PostAsync(uri, content).ConfigureAwait(false);
+                string ans = await responseMessage.Content.ReadAsStringAsync();
+            }
+
+            if (CurrentStudent.Homework == null)
+                CurrentStudent.Homework = new ObservableCollection<Homework>();
+            CurrentStudent.Homework.Add(CurrentHomework);
+            CurrentHomework = null;
+            OnPropertyChanged("CurrentStudent");
         }
 
         public ICommand AddStudentCommand
